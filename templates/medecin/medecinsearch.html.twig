@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MedecinController!{% endblock %}
+{% block body %}
+    <h1>Liste des Médecins</h1>
+
+    {% if medecins is empty %}
+        <p>Aucun médecin trouvé entre ces dates.</p>
+    {% else %}
+     
+                {% for medecin in medecins %}
+                    
+                  nom      {{ medecin.nom }} <br>
+                   date de naissance     {{ medecin.datenaissance|date('Y-m-d') }} <br>
+                      nom hopital  {{ medecin.hopital.nom }}</td> <br>
+                      date fabrication  {{ medecin.hopital.datefabrication|date('Y-m-d') }} <br>
+                
+                {% endfor %}
+         
+    {% endif %}
+{% endblock %}
